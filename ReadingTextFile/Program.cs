@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using ReadingTextFile.Classes;
+using ReadingTextFile.BusinessLogic;
 
 namespace ReadingTextFile
     {
@@ -29,22 +30,12 @@ namespace ReadingTextFile
             {
                 var fileLines = File.ReadAllLines(textFile).ToList();
 
-                LineCounnt lc = new LineCounnt();
-                int lineCountQS = lc.GetCountByQS(fileLines);
-                int lineCountMS = lc.GetCountByMS(fileLines);
 
+                var fileDataCount = new FileDataCount(fileLines);
+                var lineCount = fileDataCount.CountLines();
+                var wordCount = fileDataCount.CountWords();
 
-                WordCount wc = new WordCount();
-                int wordCountQS = wc.GetCountByQS(fileLines);
-                int wordCountMS = wc.GetCountByMS(fileLines);
-
-
-                CharacterCount cc = new CharacterCount();
-                int charCountQS = cc.GetCountByQS(fileLines);
-                int charCountMS = cc.GetCountByMS(fileLines);
-
-
-                Console.WriteLine("   Reading Text File using LINQ ");
+               /* Console.WriteLine("   Reading Text File using LINQ ");
                 Console.WriteLine("----------------------------------------------------");
                 Console.WriteLine("\n  Total Lines by Query Syntax:" + lineCountQS);
                 Console.WriteLine("  Total Lines by Method Syntax:" + lineCountMS + "\n");
@@ -56,7 +47,7 @@ namespace ReadingTextFile
                 Console.WriteLine("----------------------------------------------------");
                 Console.WriteLine("\n  Total Characters by Query Syntax:" + charCountQS);
                 Console.WriteLine("  Total Characters by Method Syntax:" + charCountMS + "\n");
-                Console.WriteLine("----------------------------------------------------");
+                Console.WriteLine("----------------------------------------------------");*/
 
             }
             else

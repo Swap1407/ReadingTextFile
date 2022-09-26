@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ReadingTextFile.Classes
 {
-    internal interface ICalcCount
+    internal interface ICountFileData
     {
-        int GetCountByQS(List<string> sQS);
-        int GetCountByMS(List<string> sMS);
+        int GetCountByQuery(List<string> sQS);
+        int GetCountByLambda(List<string> sMS);
     }
 }
