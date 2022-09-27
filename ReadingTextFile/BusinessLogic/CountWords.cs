@@ -6,20 +6,19 @@ using System.Threading.Tasks;
 
 namespace ReadingTextFile.Classes
 {
-    internal class CountLines : ICountFileData
+    internal class CountWords : ICountFileData
     {
-        public int Count { get; set; }
-
         public int GetCountByQuery(List<string> fileLines)
         {
             return (from line in fileLines
-                     select line).Count();
+                     from word in line.Split(' ')
+                     select word).Count();
+           
         }
 
         public int GetCountByLambda(List<string> fileLines)
         {
-            return fileLines.Select(lines => lines).Count();
+            return fileLines.SelectMany(lines => lines.Split(' ')).Count();
         }
-
     }
 }

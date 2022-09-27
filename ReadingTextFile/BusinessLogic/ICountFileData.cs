@@ -8,7 +8,7 @@ namespace ReadingTextFile.Classes
 {
     internal interface ICountFileData
     {
-        int GetCountByQuery(List<string> sQS);
-        int GetCountByLambda(List<string> sMS);
+        int GetCountByQuery(List<string> FileLines);
+        int GetCountByLambda(List<string> FileLines);
     }
 }
