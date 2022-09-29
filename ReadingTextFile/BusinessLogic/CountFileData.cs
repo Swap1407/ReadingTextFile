@@ -21,6 +21,8 @@ namespace ReadingTextFile.BusinessLogic
             _countCharacterData = new CountCharacters();
         }
 
+        /* These methods should not be void. You should never print anything on screen from your class unless it is the starting point i.e. main method*/
+
         public void CountLines()
         {
             Console.WriteLine("Line Count By Lambda Method:"+ _countLineData.GetCountByLambda(_fileLines));
