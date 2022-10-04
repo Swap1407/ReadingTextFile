@@ -23,23 +23,35 @@ namespace ReadingTextFile.BusinessLogic
 
         /* These methods should not be void. You should never print anything on screen from your class unless it is the starting point i.e. main method*/
 
-        public void CountLines()
+        public int CountLinesByLambda()
         {
-            Console.WriteLine("Line Count By Lambda Method:"+ _countLineData.GetCountByLambda(_fileLines));
-            Console.WriteLine("Line Count By Query Method:" + _countLineData.GetCountByQuery(_fileLines));
+            return _countLineData.GetCountByLambda(_fileLines);
         }
 
-        public void CountWords()
+        public int CountLinesByQuery()
         {
-            Console.WriteLine("Word Count By Lambda Method:" + _countWordData.GetCountByLambda(_fileLines));
-            Console.WriteLine("Word Count By Query Method:" + _countWordData.GetCountByQuery(_fileLines));
-            
+            return _countLineData.GetCountByQuery(_fileLines);
         }
 
-        public void CountCharacters()
+
+        public int CountWordsByLambda()
         {
-            Console.WriteLine("Character Count By Lambda Method:" + _countCharacterData.GetCountByLambda(_fileLines));
-            Console.WriteLine("Character Count By Query Method:" + _countCharacterData.GetCountByQuery(_fileLines));
+            return _countWordData.GetCountByLambda(_fileLines);
+        }
+
+        public int CountWordsByQuery()
+        {
+            return _countWordData.GetCountByQuery(_fileLines);
+        }
+
+        public int CountCharactersByLambda()
+        {
+            return _countCharacterData.GetCountByLambda(_fileLines);
+        }
+
+        public int CountCharactersByQuery()
+        {
+            return _countCharacterData.GetCountByQuery(_fileLines);
         }
     }
 }

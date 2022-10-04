@@ -20,13 +20,20 @@ namespace ReadingTextFile
                 var fileLines = File.ReadAllLines(textFile).ToList();
 
                 var countFileData = new CountFileData(fileLines);
-                countFileData.CountLines();
-                countFileData.CountWords();
-                countFileData.CountCharacters();
+                var lineCountByLambda =  countFileData.CountLinesByLambda();
+                var wordCountByLambda =  countFileData.CountWordsByLambda();
+                var charactersCountByLambda = countFileData.CountCharactersByLambda();
+                var lineCountByQuery = countFileData.CountLinesByQuery();
+                var wordCountByQuery = countFileData.CountWordsByQuery();
+                var charactersCountByQuery = countFileData.CountCharactersByQuery();
+
+                Console.WriteLine("Total number of lines by Lambda method :" + lineCountByLambda + " by Query method :" + lineCountByQuery);
+                Console.WriteLine("Total number of words by Lambda method :" + wordCountByLambda + " by Query method :" + wordCountByQuery);
+                Console.WriteLine("Total number of characterss by Lambda method :" + charactersCountByLambda + " by Query method :" + charactersCountByQuery);
             }
             catch (Exception ex)
             {
-                Console.WriteLine("File Not Found\n"+ex);
+                Console.WriteLine(ex);
             }
 
             Console.ReadKey();
